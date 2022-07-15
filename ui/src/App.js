@@ -14,7 +14,7 @@ function App() {
 
   const ethereum = window.ethereum;
 
-  const contractAddress = MyContractJSON.networks["5777"].address;
+  const contractAddress = MyContractJSON.networks["5"].address;
   const contractAbi = MyContractJSON.abi;
 
   const web3 = new Web3(ethereum);
@@ -33,13 +33,13 @@ function App() {
 
   async function setValue() {
     const txValue = await myContract.methods
-      .setMsg(inputMsg)
+      .setMessage(inputMsg)
       .send({ from: ethereum.selectedAddress });
     console.log(txValue);
   };
 
   async function getValue() {
-    const data = await myContract.methods.message().call();
+    const data = await myContract.methods.getMessage().call();
     setOutPutMsg(data);
   }
 
